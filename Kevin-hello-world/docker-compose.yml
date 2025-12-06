@@ -12,4 +12,4 @@
       - "/sys:/sys:ro"              # Mount /sys for system stats
       - "/var/lib/docker/:/var/lib/docker:ro"  # Mount Docker data directory
     privileged: true                # This grants cAdvisor more permissions for system stats
-    networks:
+  
