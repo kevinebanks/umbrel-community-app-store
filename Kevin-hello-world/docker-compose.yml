@@ -1,15 +1,19 @@
 #version: "3.7"
 
+services:
   cadvisor:
-    image: gcr.io/cadvisor/cadvisor:latest
+    image: gcr.io/cadvisor/cadvisor:v0.47.0     
     container_name: cadvisor
-    restart: always
     ports:
-      - "8082:8080"  # Expose cAdvisor web UI on port 8082
+      - 8181:8080
     volumes:
-      - "/:/rootfs:ro"              # Mount the host filesystem
-      - "/var/run:/var/run:ro"      # Mount the Docker socket for container monitoring
-      - "/sys:/sys:ro"              # Mount /sys for system stats
-      - "/var/lib/docker/:/var/lib/docker:ro"  # Mount Docker data directory
-    privileged: true                # This grants cAdvisor more permissions for system stats
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+    devices:
+      - /dev/kmsg
+    privileged: true
+    restart: unless-stopped
   
