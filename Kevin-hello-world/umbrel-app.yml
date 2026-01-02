@@ -1,8 +1,8 @@
 manifestVersion: 1
-id: kevin
-name: cadviser
+id: sparkles-hello-world
+name: Hello World
 tagline: Replace this tagline with your app's tagline
-icon: http://192.168.2.160/home/umbrel/umbrel/cadvisor.png
+icon: https://svgur.com/i/mvA.svg
 category: Development
 version: "1.0.0"
 port: 4000
